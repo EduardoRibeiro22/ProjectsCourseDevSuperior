@@ -1,0 +1,65 @@
+package application;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.ImportedProduct;
+import entities.Product;
+import entities.UsedProduct;
+
+public class Program {
+
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		List<Product> listProducts = new ArrayList<Product>();
+		DateTimeFormatter ftm1 = DateTimeFormatter.ofPattern("DD/MM/yyyy");
+
+		System.out.print("Enter the number of products: ");
+		int numberProducts = sc.nextInt();
+		sc.nextLine();
+
+		for (int i = 0; i < numberProducts; i++) {
+
+			System.out.print("Product #" + (i + 1) + " data:");
+			System.out.print("\n" + "Commom, used or imported (c/u/i)? ");
+			char pricetag = sc.next().charAt(0);
+			sc.nextLine();
+			System.out.print("Name: ");
+			String name = sc.nextLine();
+			System.out.print("Price: ");
+			Double price = sc.nextDouble();
+			sc.nextLine();
+			if (pricetag == 'c') {
+				Product product1 = new Product(name, price);
+				listProducts.add(product1);
+			} else if (pricetag == 'i') {
+				System.out.print("Customs fee: ");
+				Double Customsfee = sc.nextDouble();
+				sc.nextLine();
+				Product product2 = new ImportedProduct(name, price, Customsfee);
+				listProducts.add(product2);
+			} else if (pricetag == 'u') {
+				System.out.print("Manufacture date (DD/MM/YYYY)");
+				String dateString = sc.nextLine();
+				LocalDate date = LocalDate.parse(dateString, ftm1);
+
+				Product product3 = new UsedProduct(name, price, date);
+				listProducts.add(product3);
+
+			}
+
+			for (Product product : listProducts) {
+				System.out.println(product);
+			}
+
+		}
+
+		sc.close();
+	}
+
+}

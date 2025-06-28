@@ -1,0 +1,61 @@
+package entities;
+
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalDateTime;import javax.swing.plaf.basic.DefaultMenuLayout;
+
+public class Reservation {
+	private Integer roomNumber;
+	private LocalDateTime checkin;
+	private LocalDateTime checkout;
+
+	public Reservation() {
+		super();
+	}
+
+	public Reservation(Integer roomNumber, LocalDateTime checkin, LocalDateTime checkout) {
+
+		this.roomNumber = roomNumber;
+		this.checkin = checkin;
+		this.checkout = checkout;
+
+	}
+
+	public Integer getRoomNumber() {
+		return roomNumber;
+	}
+
+	public LocalDateTime getCheckin() {
+		return checkin;
+	}
+
+	public LocalDateTime getCheckout() {
+		return checkout;
+	}
+
+	public Integer duration() {
+
+		Integer duration = (int) Duration.between(checkout, checkin).toDays();
+
+		return duration;
+
+	}
+
+	public void updateDates(LocalDateTime checkinAtt, LocalDateTime checkoutAtt) {
+		
+		try {
+		if(this.checkin.toLocalDate().compareTo(checkinAtt.toLocalDate()) < 0) {
+			this.checkin = checkinAtt;
+			this.checkout = checkoutAtt;
+			
+		}
+		else if(this.checkin.toLocalDate().compareTo(checkinAtt.toLocalDate()) == 0) {
+			System.out.println("The dates are the same! ");
+		} else {
+			System.out.println("Dates earlier than the previous Check-in date will not be accepted! ");
+		}
+		}catch (NullPointerException e){
+			
+		}
+	}
+}

@@ -1,0 +1,23 @@
+package application;
+
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner (System.in);
+		DateTimeFormatter ftm1 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+;		System.out.print("Room number: ");
+		Integer roomNumber = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Check-in date (dd/MM/yyyy HH:mm:ss): ");
+		String dateInString = sc.nextLine();
+		System.out.print("Check-out date (dd/MM/yyyy HH:mm:ss): ");
+		String dateOutString = sc.nextLine();
+		
+		
+		
+	}
+}

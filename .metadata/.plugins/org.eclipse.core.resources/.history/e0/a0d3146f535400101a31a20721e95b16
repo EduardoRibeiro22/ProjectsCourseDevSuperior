@@ -1,0 +1,62 @@
+package entities;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+
+public class Reservation {
+	private Integer roomNumber;
+	private LocalDateTime checkin;
+	private LocalDateTime checkout;
+
+	public Reservation() {
+		super();
+	}
+
+	public Reservation(Integer roomNumber, LocalDateTime checkin, LocalDateTime checkout) {
+
+		this.roomNumber = roomNumber;
+		this.checkin = checkin;
+		this.checkout = checkout;
+
+	}
+
+	public Integer getRoomNumber() {
+		return roomNumber;
+	}
+
+	public LocalDateTime getCheckin() {
+		return checkin;
+	}
+
+	public LocalDateTime getCheckout() {
+		return checkout;
+	}
+
+	public Integer duration() {
+
+		Integer duration = (int) Duration.between(checkout, checkin).toDays();
+
+		return duration;
+
+	}
+
+	public void updateDates(LocalDateTime checkinAtt, LocalDateTime checkoutAtt) {
+			
+		if (this.checkin.toLocalDate().compareTo(checkinAtt.toLocalDate()) < 0) {
+			this.checkin = checkinAtt;
+			this.checkout = checkoutAtt;
+
+		} else if (this.checkin.toLocalDate().compareTo(checkinAtt.toLocalDate()) == 0) {
+			System.out.println("The dates are the same! ");
+		} else {
+			System.out.println("Dates earlier than the previous Check-in date will not be accepted! ");
+		}
+
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Room %d, check-in: %s, check-out: %s, %d nights",this.roomNumber,this.checkin.toString(),this.checkout.toString(),duration());
+	}
+	
+}

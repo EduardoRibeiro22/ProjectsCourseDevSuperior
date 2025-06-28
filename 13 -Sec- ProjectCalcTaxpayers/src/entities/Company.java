@@ -1,0 +1,36 @@
+package entities;
+
+public class Company extends TaxPayer {
+
+	private int numberOfEmployees;
+
+	public Company() {
+		super();
+	}
+
+	public Company(String name, Double anualIncome, int numberOfEmployees) {
+		super(name, anualIncome);
+		this.numberOfEmployees = numberOfEmployees;
+	}
+
+	public int getNumberOfEmployees() {
+		return numberOfEmployees;
+	}
+
+	@Override
+	public Double tax() {
+
+		if (numberOfEmployees < 10) {
+			return (super.getAnualIncome() * 0.16);
+		} else {
+			return (super.getAnualIncome() * 0.14);
+		}
+
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s: $ %.2f", super.getName(),tax());
+	}
+	
+}
