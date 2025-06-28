@@ -18,3 +18,27 @@ Os projetos estão organizados em pastas, correspondendo aos módulos do curso. 
 - **DSDelivery**: Projeto focado em delivery, APIs e interface web.  
 - **Big Game Survey**: Aplicação para pesquisa e análise de dados.  
 - **DSMeta**: Projeto final com funcionalidades completas e implantação.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#Translate
+
+# Modern Developer Training - Projects
+
+This repository contains the projects developed during the **Modern Developer Training** course. The course is a complete journey covering programming fundamentals, web development, backend, frontend, databases, and much more.
+
+## About the course
+
+The Modern Developer Training program teaches everything from programming logic to modern technologies such as Java, React, Docker, REST APIs, and databases. It includes dozens of modules and hands-on exercises to reinforce learning.
+
+## Repository Structure
+
+Projects are organized into folders according to the course modules. Each folder contains source code and instructions to run the projects.
+
+### Main Projects
+
+- **DSMovie Beginner**: A basic project to start applying Java and frontend concepts.  
+- **DSMovie**: A more advanced version with additional features.  
+- **DSVendas**: A full sales management system with integrated backend and frontend.  
+- **DSDelivery**: A delivery-focused project with APIs and web interface.  
+- **Big Game Survey**: A survey application for data collection and visualization.  
+- **DSMeta**: A complete final project, including full-stack features and deployment.
